@@ -165,13 +165,14 @@ if df is not None:
         st.header("Data Cleaning and Preprocessing")
 
         cleaning_method = st.selectbox(
-            "Choose a cleaning method:",
-            [
-                "Drop missing rows",
-                "Fill numerical missing values with mean",
-                "Fill numerical missing values with median"
-            ]
-        )
+    "Choose a cleaning method:",
+    [
+        "Drop missing rows",
+        "Fill numerical missing values with mean",
+        "Fill numerical missing values with median"
+    ],
+    key="cleaning_method"
+)
 
         df_cleaned = clean_data(df, cleaning_method)
 
@@ -205,14 +206,18 @@ if df is not None:
         st.header("Data Visualization")
 
         plot_type = st.selectbox(
-            "Choose plot type:",
-            ["Histogram", "Boxplot", "Scatter Plot", "Bar Chart"]
-        )
+    "Choose plot type:",
+    ["Histogram", "Boxplot", "Scatter Plot", "Bar Chart"],
+    key="plot_type"
+)
 
         if plot_type == "Histogram":
             if len(numeric_columns) > 0:
-                column = st.selectbox("Choose numerical column:", numeric_columns)
-
+                column = st.selectbox(
+    "Choose numerical column:",
+    numeric_columns,
+    key="histogram_column"
+)
                 fig, ax = plt.subplots()
                 ax.hist(df[column].dropna(), bins=20)
                 ax.set_title(f"Histogram of {column}")
@@ -226,8 +231,11 @@ if df is not None:
 
         elif plot_type == "Boxplot":
             if len(numeric_columns) > 0:
-                column = st.selectbox("Choose numerical column:", numeric_columns)
-
+                column = st.selectbox(
+    "Choose numerical column:",
+    numeric_columns,
+    key="boxplot_column"
+)
                 fig, ax = plt.subplots()
                 ax.boxplot(df[column].dropna(), vert=False)
                 ax.set_title(f"Boxplot of {column}")
@@ -240,8 +248,17 @@ if df is not None:
 
         elif plot_type == "Scatter Plot":
             if len(numeric_columns) >= 2:
-                x_column = st.selectbox("Choose X column:", numeric_columns)
-                y_column = st.selectbox("Choose Y column:", numeric_columns)
+                x_column = st.selectbox(
+                    "Choose X column:",
+                    numeric_columns,
+                    key="scatter_x_column"
+                )
+
+                y_column = st.selectbox(
+                    "Choose Y column:",
+                    numeric_columns,
+                    key="scatter_y_column"
+)
 
                 fig, ax = plt.subplots()
                 ax.scatter(df[x_column], df[y_column])
@@ -256,8 +273,11 @@ if df is not None:
 
         elif plot_type == "Bar Chart":
             if len(categorical_columns) > 0:
-                column = st.selectbox("Choose categorical column:", categorical_columns)
-
+                column = st.selectbox(
+    "Choose categorical column:",
+    categorical_columns,
+    key="bar_chart_column"
+)
                 counts = df[column].value_counts()
 
                 fig, ax = plt.subplots()
@@ -279,8 +299,11 @@ if df is not None:
         st.header("Probability Distributions")
 
         if len(numeric_columns) > 0:
-            column = st.selectbox("Choose numerical column for distribution analysis:", numeric_columns)
-
+            column = st.selectbox(
+    "Choose numerical column for distribution analysis:",
+    numeric_columns,
+    key="distribution_column"
+)
             data = df[column].dropna()
             mean = data.mean()
             std = data.std()
@@ -342,12 +365,13 @@ if df is not None:
                 "Confidence Interval",
                 "One-Sample T-Test",
                 "Chi-Square Test"
-            ]
+            ],
+            key="test_type"
         )
 
         if test_type == "Normality Test":
             if len(numeric_columns) > 0:
-                column = st.selectbox("Choose numerical column:", numeric_columns)
+                column = st.selectbox("Choose numerical column:", numeric_columns, key="normality_column")
 
                 data = df[column].dropna()
                 stat, p_value = stats.shapiro(data)
@@ -364,7 +388,7 @@ if df is not None:
 
         elif test_type == "Confidence Interval":
             if len(numeric_columns) > 0:
-                column = st.selectbox("Choose numerical column:", numeric_columns)
+                column = st.selectbox("Choose numerical column:", numeric_columns, key="confidence_column")
                 confidence = st.slider("Confidence level:", 0.80, 0.99, 0.95)
 
                 data = df[column].dropna()
@@ -389,7 +413,7 @@ if df is not None:
 
         elif test_type == "One-Sample T-Test":
             if len(numeric_columns) > 0:
-                column = st.selectbox("Choose numerical column:", numeric_columns)
+                column = st.selectbox("Choose numerical column:", numeric_columns, key="ttest_column")
                 population_mean = st.number_input("Enter hypothesized population mean:", value=70.0)
 
                 data = df[column].dropna()
@@ -407,8 +431,8 @@ if df is not None:
 
         elif test_type == "Chi-Square Test":
             if len(categorical_columns) >= 2:
-                column1 = st.selectbox("Choose first categorical column:", categorical_columns)
-                column2 = st.selectbox("Choose second categorical column:", categorical_columns)
+                column1 = st.selectbox("Choose first categorical column:", categorical_columns, key="chi_square_column1")
+                column2 = st.selectbox("Choose second categorical column:", categorical_columns, key="chi_square_column2")
 
                 table = pd.crosstab(df[column1], df[column2])
                 stat, p_value, dof, expected = stats.chi2_contingency(table)

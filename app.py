@@ -24,7 +24,7 @@ It is designed for students and beginners with limited programming experience.
 # -----------------------------
 
 def load_sample_data():
-    return pd.read_csv("data/students_performance.csv")
+    return pd.read_csv("data/StudentsPerformance.csv")
 
 
 def missing_value_analysis(df):

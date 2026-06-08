@@ -2,42 +2,40 @@
 
 ## Overview
 
-The Student-Friendly Data Analysis Toolkit is a beginner-friendly Python toolkit designed to help users explore, clean, visualize, and statistically analyze datasets.
+The Student-Friendly Data Analysis Toolkit is an interactive web-based toolkit designed to help users explore, clean, visualize, and statistically analyze datasets.
 
-This project was created as part of a Data Analysis Toolkit assignment. The goal is to provide a reusable and easy-to-use toolkit for common data analysis tasks.
+This project was created for a Data Analysis Toolkit assignment. The main goal is to provide a simple and reusable tool that allows users with limited programming experience to perform common data analysis tasks.
 
-The toolkit is especially useful for students and beginners who have limited programming experience but want to perform basic data analysis efficiently.
+The toolkit is built using Python and Streamlit.
 
 ---
 
 ## Main Features
 
-### 1. Data Exploration
+### Data Exploration
 
-- Load CSV datasets
-- Preview the first rows of the dataset
-- Display dataset shape
-- Show column names
-- Show data types
-- Display general dataset information
+- Upload a CSV dataset
+- Use a built-in sample dataset
+- Preview the first rows
+- View dataset shape
+- Display column names
+- Identify numerical and categorical columns
+- Check duplicate rows
+- Analyze missing values
 
-### 2. Data Cleaning and Preprocessing
+### Data Cleaning
 
-- Detect missing values
-- Calculate missing-value percentages
 - Remove duplicate rows
-- Handle missing values using:
-  - Drop method
-  - Mean replacement
-  - Median replacement
+- Drop missing rows
+- Fill numerical missing values using the mean
+- Fill numerical missing values using the median
 
-### 3. Descriptive Statistics
+### Descriptive Statistics
 
 The toolkit calculates:
 
 - Mean
 - Median
-- Mode
 - Minimum
 - Maximum
 - Variance
@@ -45,48 +43,47 @@ The toolkit calculates:
 - Skewness
 - Kurtosis
 
-### 4. Data Visualization
+### Data Visualization
 
-The toolkit includes common visualizations such as:
+The toolkit includes:
 
 - Histograms
 - Boxplots
 - Scatter plots
 - Bar charts
 
-### 5. Probability Distributions
+### Probability Distributions
 
-The toolkit supports probability distribution analysis using:
+The toolkit supports:
 
-- PDF: Probability Density Function
-- CDF: Cumulative Distribution Function
-- Normal distribution visualization
+- PDF visualization
+- CDF visualization
+- Normal distribution comparison
+- Kolmogorov-Smirnov goodness-of-fit test
 
-### 6. Statistical Inference
+### Statistical Inference
 
 The toolkit includes:
 
-- Normality testing
+- Shapiro-Wilk normality test
 - Confidence intervals
 - One-sample t-test
 - Chi-square test
 
-### 7. Export Results
+### Export
 
-Users can export the cleaned dataset as a CSV file.
+Users can download the cleaned dataset as a CSV file.
 
 ---
 
-## Tools and Technologies Used
+## Tools and Technologies
 
 - Python
+- Streamlit
 - Pandas
 - NumPy
 - Matplotlib
-- Seaborn
 - SciPy
-- Jupyter Notebook
-- Google Colab
 - GitHub
 
 ---
@@ -96,15 +93,21 @@ Users can export the cleaned dataset as a CSV file.
 ```text
 data-analysis-toolkit/
 │
+├── app.py
 ├── README.md
-├── Data_Analysis_Toolkit.ipynb
 ├── requirements.txt
 │
 ├── data/
 │   └── students_performance.csv
 │
+├── notebooks/
+│   └── Data_Analysis_Toolkit.ipynb
+│
 ├── docs/
 │   └── user_guide.md
 │
 └── screenshots/
-    └── README.md
+    ├── home_page.png
+    ├── data_exploration.png
+    ├── visualization.png
+    └── statistical_tests.png

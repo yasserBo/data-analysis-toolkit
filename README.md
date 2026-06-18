@@ -166,6 +166,8 @@ pip install -r requirements.txt
 
 ```bash
 streamlit run app.py
+or
+python -m streamlit run app.py
 ```
 
 4. Open the local URL shown in the terminal.

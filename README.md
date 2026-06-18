@@ -76,7 +76,45 @@ Users can download the cleaned dataset as a CSV file.
 
 ---
 
-## Tools and Technologies
+## Toolkit Tools
+
+This toolkit includes several reusable data analysis tools:
+
+### 1. Data Exploration Tool
+
+Allows users to load a dataset, preview the first rows, view dataset shape, check column names, inspect data types, and identify numerical and categorical variables.
+
+### 2. Missing-Value Analysis Tool
+
+Detects missing values in each column and calculates the percentage of missing data.
+
+### 3. Data Cleaning Tool
+
+Helps users clean the dataset by removing duplicate rows and handling missing values using different methods such as dropping rows, mean replacement, or median replacement.
+
+### 4. Descriptive Statistics Tool
+
+Calculates summary statistics for numerical variables, including mean, median, mode, minimum, maximum, variance, standard deviation, skewness, and kurtosis.
+
+### 5. Data Visualization Tool
+
+Allows users to create interactive charts such as histograms, boxplots, scatter plots, bar charts, correlation heatmaps, and pairwise scatter matrices.
+
+### 6. Probability Distribution Tool
+
+Allows users to analyze numerical variables using PDF comparison, CDF curves, Q-Q plots, and goodness-of-fit testing.
+
+### 7. Statistical Inference Tool
+
+Provides statistical tests such as normality testing, confidence intervals, one-sample t-tests, chi-square tests, and Pearson correlation tests.
+
+### 8. Export Tool
+
+Allows users to download the cleaned dataset, descriptive statistics, and an auto-generated analysis report.
+
+---
+
+## Technologies
 
 - Python
 - Streamlit
